@@ -14,12 +14,12 @@
     "agentkeepalive": "^0.2.3",
     "algolia-search": "^1.6.4",
     "debug": "^2.1.0",
-    "npm-registry": "^0.1.11",
+    "npm-registry": "^0.1.12",
     "pouchdb": "^3.1.0",
     "promise": "^6.0.1"
   },
   "devDependencies": {
-    "localenv": "^0.2.1",
+    "localenv": "^0.2.2",
     "watchy": "^0.5.6"
   }
 }
