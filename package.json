@@ -1,0 +1,25 @@
+{
+  "name": "www.npmfind.com",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "watchy . -i '//node_modules|\\.git|\\.last_seq$' -- localenv .env -- node index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vincent Voyer <vincent@zeroload.net>",
+  "license": "ISC",
+  "dependencies": {
+    "agentkeepalive": "^0.2.3",
+    "algolia-search": "^1.6.4",
+    "debug": "^2.1.0",
+    "npm-registry": "^0.1.11",
+    "pouchdb": "^3.1.0",
+    "promise": "^6.0.1"
+  },
+  "devDependencies": {
+    "localenv": "^0.2.1",
+    "watchy": "^0.5.6"
+  }
+}
