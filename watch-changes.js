@@ -3,7 +3,6 @@
 
 var HttpsAgent = require('agentkeepalive').HttpsAgent;
 var path = require('path');
-var Promise = require('promise');
 var PouchDB = require('pouchdb');
 
 var debug = require('debug')('npmfind:watch-changes');
@@ -35,7 +34,7 @@ function showDbInfos() {
     .then(show);
 
   function show(info) {
-    debug('Database `%s` update_seq is `%d`', info.db_name, info.host, info.update_seq);
+    debug('Database %s at, %supdate_seq is `%d`', info.db_name, info.host, info.update_seq);
   }
 }
 

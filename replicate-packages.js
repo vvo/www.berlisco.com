@@ -34,7 +34,7 @@ function showDbInfos() {
     .then(show);
 
   function show(info) {
-    debug('Database `%s` at %s contains %d packages', info.db_name, info.host, info.doc_count);
+    debug('Database %s at %s contains `%d` packages', info.db_name, info.host, info.doc_count);
   }
 }
 
