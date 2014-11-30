@@ -9,15 +9,13 @@ var PouchDB = require('pouchdb');
 var debug = require('debug')('npmfind:replicate-packages');
 var keepaliveAgent = new HttpsAgent();
 
-// Replication store is used to track progress and failover
-// It's a simple text file that stores the last package synced to algolia
 var replicationStore = require('./replication-store')(
-  path.resolve(__dirname, process.env.LAST_PACKAGE_FILE
-));
+  path.resolve(__dirname, process.env.LAST_PACKAGE_FILE)
+);
 var normalizePackage = require('./normalize-package');
 var saveToAlgolia = require('./save-to-algolia');
 
-var db = new PouchDB('https://skimdb.npmjs.com/registry', {
+var db = new PouchDB(process.env.NPM_REGISTRY_COUCHDB_ENDPOINT, {
   ajax: {
     agent: keepaliveAgent
   }

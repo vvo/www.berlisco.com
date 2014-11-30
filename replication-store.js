@@ -1,3 +1,6 @@
+// Replication store is used to track progress and failover
+// It's a simple text file that stores the last package synced to algolia
+
 var fs = require('fs');
 
 module.exports = function replicationStore(storePath) {

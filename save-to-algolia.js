@@ -21,9 +21,18 @@ var saveObjects = Promise.denodeify(index.saveObjects.bind(index));
 module.exports = saveToAlgolia;
 
 function saveToAlgolia(packages) {
+  if (!Array.isArray(packages)) {
+    packages = [packages];
+  }
+
   packages = packages.map(addObjectID);
 
   debug('Saving %d package(s) to algolia', packages.length);
+
+  if (process.env.DRY_MODE === 'yes') {
+    debug('Would have saved packages: %j', packages.map(pickName));
+    return Promise.resolve(packages);
+  }
 
   return saveObjects(packages).then(returnPackages);
 
@@ -35,4 +44,8 @@ function saveToAlgolia(packages) {
 function addObjectID(pkg) {
   pkg.objectID = pkg.name;
   return pkg;
+}
+
+function pickName(pkg) {
+  return pkg.name;
 }

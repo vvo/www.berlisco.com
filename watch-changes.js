@@ -1,60 +1,93 @@
+// this file is used to watch changes to the npm registry and save
+// the changed document back to algolia
+
+var HttpsAgent = require('agentkeepalive').HttpsAgent;
 var path = require('path');
 var Promise = require('promise');
 var PouchDB = require('pouchdb');
 
-var db = new PouchDB('https://skimdb.npmjs.com/registry');
-var lastSequenceFile = path.resolve(__dirname, process.env.LAST_SEQUENCE_FILE);
-var replicationStore = require('./replication-store')(lastSequenceFile);
+var debug = require('debug')('npmfind:watch-changes');
+var keepaliveAgent = new HttpsAgent();
 
-// no limit by default: takes ages
-// strategy: one time replication: 100 limit
-// strategy: continuous replication 1 limit
+var replicationStore = require('./replication-store')(
+  path.resolve(__dirname, process.env.LAST_SEQUENCE_FILE)
+);
+var normalizePackage = require('./normalize-package');
+var saveToAlgolia = require('./save-to-algolia');
 
-// deleted: true sur changement, supprimer d'algolia
-
-listenForChanges({
-  since: replicationStore.get(),
-  limit: parseFloat(process.env.CHANGES_LIMIT)
-})
-.catch(function(err) {
-  console.error(err);
+var db = new PouchDB(process.env.NPM_REGISTRY_COUCHDB_ENDPOINT, {
+  ajax: {
+    agent: keepaliveAgent
+  }
 });
 
-function listenForChanges(opts) {
-  var last_seq;
+var last_seq = parseFloat(replicationStore.get());
 
+// TODO: handle delete:true
+
+showDbInfos()
+  .then(listen)
+  .catch(errorOccured);
+
+function showDbInfos() {
+  return db
+    .info()
+    .then(show);
+
+  function show(info) {
+    debug('Database `%s` update_seq is `%d`', info.db_name, info.host, info.update_seq);
+  }
+}
+
+function listen() {
+  debug('Starting listen for changes at sequence `%d`', last_seq);
+
+  return listenForChanges({
+    since: last_seq
+  });
+}
+
+function listenForChanges(opts) {
   return db
     .changes({
       since: opts.since,
-      limit: opts.limit,
+      // We ask for only one change at a time,
+      // so that we are always up to date.
+      // Asking for 10 changes will WAIT for 10 changes
+      limit: 1,
       live: true,
       include_docs: true
     })
-    .then(function (changes) {
-      last_seq = changes.last_seq;
+    .then(handleChangeResponse)
+    .then(saveLastSequence)
+    .then(nextLoop);
 
-      console.log('lastseq ' + last_seq);
-      var doAll = changes.results.map(doSometingAsync);
+    function handleChangeResponse(res) {
+      var pkg = normalizePackage(res.results.pop().doc);
+      return saveToAlgolia(pkg).then(returnLastSeq);
 
-      return Promise.all(doAll);
-    })
-    .then(function saveSequence(res) {
+      function returnLastSeq() {
+        return res.last_seq;
+      }
+    }
+
+    function saveLastSequence(last_seq) {
       if (process.env.DRY_MODE !== 'yes') {
         replicationStore.set(last_seq);
       }
 
-      console.log('done ' + res.length);
+      return last_seq;
+    }
 
+    function nextLoop(last_seq) {
       return listenForChanges({
-        since: last_seq,
-        limit: opts.limit
+        since: last_seq
       });
-    });
+    }
 }
 
-function doSometingAsync(change) {
-  return new Promise(function (resolve/*, reject*/) {
-    console.log(change);
-    setTimeout(resolve, 500, true);
-  });
+function errorOccured(err) {
+  setTimeout(function() {
+    throw err;
+  }, 0);
 }
