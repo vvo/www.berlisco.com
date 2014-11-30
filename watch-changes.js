@@ -71,6 +71,8 @@ function listenForChanges(opts) {
     }
 
     function saveLastSequence(last_seq) {
+      debug('last_seq was %d', last_seq);
+
       if (process.env.DRY_MODE !== 'yes') {
         replicationStore.set(last_seq);
       }
