@@ -56,8 +56,6 @@ function addToResults(pkg) {
     repo.text = 'no repository';
   }
 
-  console.log(pkg.version);
-
   $results.appendChild(hyperglue(html, {
     '.name': pkg.name,
     '.description': truncate(pkg.description, 100),
