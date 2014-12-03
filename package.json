@@ -27,7 +27,8 @@
     "npm-registry": "^0.1.12",
     "pouchdb": "^3.1.0",
     "promise": "^6.0.1",
-    "truncate": "^1.0.4"
+    "truncate": "^1.0.4",
+    "uglify-js": "^2.4.15"
   },
   "devDependencies": {
     "browser-sync": "^1.7.2",
