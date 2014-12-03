@@ -5,21 +5,51 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "watchy . -i '//node_modules|\\.git|\\.last_seq$' -- localenv .env -- node index",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build-js": "browserify frontend/index.js | uglifyjs -mc > frontend/bundle.js",
+    "watch-js": "watchify frontend/index.js -o frontend/bundle.js -d -v",
+    "browsersync": "browser-sync start --no-open --server frontend/ --files 'frontend/bundle.js, frontend/index.html, frontend/style.css'",
+    "dev-command": "npm run watch-js & npm run browsersync",
+    "dev": "localenv .env -- npm run dev-command"
   },
   "author": "Vincent Voyer <vincent@zeroload.net>",
   "license": "ISC",
   "dependencies": {
     "agentkeepalive": "^0.2.3",
     "algolia-search": "^1.6.4",
+    "algoliasearch": "^2.8.0",
+    "brfs": "^1.2.0",
+    "browserify": "^6.3.3",
+    "browserify-shim": "^3.8.0",
     "debug": "^2.1.0",
+    "hyperglue": "^1.3.3",
+    "localenv": "^0.2.2",
+    "localenvify": "^1.0.0",
     "npm-registry": "^0.1.12",
     "pouchdb": "^3.1.0",
-    "promise": "^6.0.1"
+    "promise": "^6.0.1",
+    "truncate": "^1.0.4"
   },
   "devDependencies": {
-    "localenv": "^0.2.2",
-    "watchy": "^0.5.6"
+    "browser-sync": "^1.7.2",
+    "http-server": "^0.7.3",
+    "watchify": "^2.1.1"
+  },
+  "browser": {
+    "algoliasearch": "./node_modules/algoliasearch/dist/algoliasearch.js"
+  },
+  "browserify": {
+    "transform": [
+      [
+        "localenvify",
+        {
+          "envfile": ".env"
+        }
+      ],
+      "browserify-shim",
+      "brfs"
+    ]
+  },
+  "browserify-shim": {
+    "algoliasearch": "AlgoliaSearch"
   }
 }

@@ -1,0 +1,35 @@
+html {
+  overflow-y: scroll;
+}
+
+h1 {
+  text-align: center;
+}
+
+.pure-form {
+  text-align: center;
+}
+
+#results, #results > div {
+  box-sizing: border-box;
+  padding: 0 .5em;
+}
+
+#results > div {
+  padding: 0 .5em;
+}
+
+#results > div {
+  margin-top: 1em;
+}
+
+.lbox {
+  border-radius: .2em;
+  padding: .5em;
+  min-height: 180px;
+  background-color: #dddddd;
+}
+
+.version {
+  color: #bbbbbb;
+}

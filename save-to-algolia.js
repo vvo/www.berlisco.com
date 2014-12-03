@@ -12,7 +12,7 @@ var client = new Algolia(
   process.env.ALGOLIA_API_KEY,
   keepaliveAgent
 );
-var index = client.initIndex(process.env.ALGOLIA_INDEX_NAME);
+var index = client.initIndex(process.env.ALGOLIA_NPMREGISTRY_INDEX_NAME);
 
 var debugLabelSuffix = process.env.DRY_MODE === 'yes' ? '-DRY-MODE' : '';
 var debug = require('debug')('npmfind:save-to-algolia' + debugLabelSuffix);

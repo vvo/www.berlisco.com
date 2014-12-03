@@ -1,2 +1,4 @@
 .last_sequence
 .last_package
+frontend/build/
+frontend/bundle.js
