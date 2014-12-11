@@ -6,30 +6,34 @@ h1 {
   text-align: center;
 }
 
-.pure-form {
-  text-align: center;
+.search-bar, .results {
+  width: 70%;
+  margin: 0 auto;
 }
 
-#results, #results > div {
-  box-sizing: border-box;
-  padding: 0 .5em;
+.search-bar {
+  margin-bottom: 1em;
+  max-width: 600px;
 }
 
-#results > div {
-  padding: 0 .5em;
+.search-bar input {
+  display: block;
+  width: 100%;
 }
 
-#results > div {
-  margin-top: 1em;
+.results {
+  max-width: 700px;
 }
 
-.lbox {
-  border-radius: .2em;
-  padding: .5em;
-  min-height: 180px;
-  background-color: #dddddd;
+.package {
+  font-size: 80%;
+  padding: 1em 0;
 }
 
-.version {
-  color: #bbbbbb;
+.package h2 {
+  margin-top: 0;
+}
+
+.package + .package {
+  border-top: 1px solid #dddddd;
 }

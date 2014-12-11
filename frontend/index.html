@@ -5,18 +5,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>npmfind.com</title>
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/g/pure@0.5.0(base-min.css+grids-responsive-min.css+forms-min.css)">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/g/pure@0.5.0(base-min.css+forms-min.css)">
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
   <h1>npmfind</h1>
 
-  <div class="pure-g">
-    <div class="pure-form pure-u-1 pure-g">
-      <input class="pure-u-sm-3-5 pure-u-md-2-5" type="text" placeholder="Search..." id="search" />
-    </div>
-    <div class="pure-u-1" id="results"></div>
+  <div class="pure-form search-bar">
+    <input type="text" placeholder="Search..." />
   </div>
+
+  <div class="results"></div>
 
   <script src="/bundle.js"></script>
 </body>

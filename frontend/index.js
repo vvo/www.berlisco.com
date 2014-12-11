@@ -2,6 +2,7 @@ var AlgoliaSearch = require('algoliasearch');
 var fs = require('fs');
 var hyperglue = require('hyperglue');
 var truncate = require('truncate');
+var debounce = require('lodash.debounce');
 
 var client = new AlgoliaSearch(
   process.env.ALGOLIA_APP_ID,
@@ -12,11 +13,14 @@ var index = client.initIndex(
 );
 
 var html = fs.readFileSync(__dirname + '/package.html', 'utf8');
-var $search = document.querySelector('#search');
-var $results = document.querySelector('#results');
+var $search = document.querySelector('.search-bar input');
+var $results = document.querySelector('.results');
 var lastSearch;
 
-$search.addEventListener('keyup', search);
+$search.addEventListener('keyup', debounce(search, 200, {
+  leading: false,
+  trailing: true
+}));
 
 function search() {
   var newSearch = this.value.trim();
