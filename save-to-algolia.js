@@ -16,7 +16,6 @@ var index = client.initIndex(process.env.ALGOLIA_NPMREGISTRY_INDEX_NAME);
 
 var debugLabelSuffix = process.env.DRY_MODE === 'yes' ? '-DRY-MODE' : '';
 var debug = require('debug')('npmfind:save-to-algolia' + debugLabelSuffix);
-var saveObjects = Promise.denodeify(index.saveObjects.bind(index));
 
 module.exports = saveToAlgolia;
 
@@ -34,11 +33,17 @@ function saveToAlgolia(packages) {
     return Promise.resolve(packages);
   }
 
-  return saveObjects(packages).then(returnPackages);
+  return new Promise(function save(resolve, reject) {
+    index
+      .saveObjects(packages, function done(err, res) {
+        if (err) {
+          reject(res);
+          return;
+        }
 
-  function returnPackages() {
-    return packages;
-  }
+        resolve(packages);
+      });
+  });
 }
 
 function addObjectID(pkg) {

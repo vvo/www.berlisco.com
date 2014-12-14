@@ -22,8 +22,6 @@ var db = new PouchDB(process.env.NPM_REGISTRY_COUCHDB_ENDPOINT, {
 
 var last_seq = parseFloat(replicationStore.get());
 
-// TODO: handle delete:true
-
 showDbInfos()
   .then(listen)
   .catch(errorOccured);
