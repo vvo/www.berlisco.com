@@ -47,12 +47,20 @@ function downloadCountPeriod(packageName, startPeriod, endPeriod) {
       .agent(keepaliveAgent)
       .on('error', reject)
       .end(function done(res) {
-        if (res.error) {
-          reject(res.error);
+        if (res.status === 404) {
+          resolve([
+            null,
+            null
+          ]);
           return;
         }
 
-        resolve(res.body.downloads);
+        if (res.status === 200) {
+          resolve(res.body.downloads);
+          return;
+        }
+
+        reject(res.error);
       });
   });
 }
