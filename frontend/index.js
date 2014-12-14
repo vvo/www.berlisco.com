@@ -1,8 +1,11 @@
 var AlgoliaSearch = require('algoliasearch');
+var debounce = require('lodash.debounce');
 var fs = require('fs');
 var hyperglue = require('hyperglue');
+var page = require('page');
+var qs = require('querystring');
 var truncate = require('truncate');
-var debounce = require('lodash.debounce');
+
 
 var client = new AlgoliaSearch(
   process.env.ALGOLIA_APP_ID,
@@ -17,7 +20,7 @@ var $search = document.querySelector('.search-bar input');
 var $results = document.querySelector('.results');
 var lastSearch;
 
-$search.addEventListener('keyup', debounce(search, 200, {
+$search.addEventListener('keyup', debounce(search, 100, {
   leading: false,
   trailing: true
 }));
@@ -36,10 +39,31 @@ function search() {
   lastSearch = newSearch;
 
   if (newSearch === '') {
+    page('/');
+  } else {
+    page('?q=' + encodeURIComponent(newSearch));
+  }
+}
+
+page('*', parse);
+page('/', show);
+page();
+
+function parse(ctx, next) {
+  // let Page.js update the url before parsing it, otherwise
+  // you are always late one keystroke
+  setTimeout(function() {
+    ctx.query = qs.parse(location.search.slice(1));
+    next();
+  }, 0);
+}
+
+function show(ctx) {
+  if (!ctx.query.q) {
     return;
   }
 
-  index.search(newSearch, function(success, content) {
+  index.search(ctx.query.q, function(success, content) {
     if (content.hits.length === 0) {
       notFound();
       return;
@@ -54,16 +78,18 @@ function addToResults(pkg) {
 
   if (pkg.github) {
     repo.url = 'https://github.com/' + pkg.github.user + '/' + pkg.github.repo;
-    repo.text = pkg.github.user + '/' + pkg.github.repo;
+    repo.text = truncate(pkg.github.user + '/' + pkg.github.repo, 20);
   } else {
     repo.url = 'https://www.npmjs.org/doc/files/package.json.html#repository';
     repo.text = 'no repository';
   }
 
   $results.appendChild(hyperglue(html, {
-    '.name': pkg.name,
+    '.name': {
+      href: '//www.npmjs.com/package/' + pkg.name,
+      _text: pkg.name
+    },
     '.description': truncate(pkg.description, 100),
-    '.version': pkg.version,
     '.github-link': {
       href: repo.url,
       _text: repo.text
@@ -80,3 +106,17 @@ function emptyElement(element) {
     element.removeChild(element.firstChild);
   }
 }
+
+// bind `/` when not in search bar to focus search bar
+// gmail style search
+document.addEventListener('keyup', function bindShortcut(e) {
+  if (e.target === $search) {
+    return;
+  }
+
+  if (e.keyCode !== 191) {
+    return;
+  }
+
+  $search.focus();
+});

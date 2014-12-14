@@ -8,11 +8,11 @@ var PouchDB = require('pouchdb');
 var debug = require('debug')('npmfind:watch-changes');
 var keepaliveAgent = new HttpsAgent();
 
-var replicationStore = require('./replication-store')(
-  path.resolve(__dirname, process.env.LAST_SEQUENCE_FILE)
+var replicationStore = require('../replication-store')(
+  path.resolve(__dirname, '..', process.env.WATCH_LAST_SEQUENCE_STORE)
 );
-var normalizePackage = require('./normalize-package');
-var saveToAlgolia = require('./save-to-algolia');
+var normalizePackage = require('../normalize-package');
+var updateAlgoliaObject = require('../update-algolia-object');
 
 var db = new PouchDB(process.env.NPM_REGISTRY_COUCHDB_ENDPOINT, {
   ajax: {
@@ -61,7 +61,7 @@ function listenForChanges(opts) {
 
     function handleChangeResponse(res) {
       var pkg = normalizePackage(res.results.pop().doc);
-      return saveToAlgolia(pkg).then(returnLastSeq);
+      return updateAlgoliaObject(pkg).then(returnLastSeq);
 
       function returnLastSeq() {
         return res.last_seq;

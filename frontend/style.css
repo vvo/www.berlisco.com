@@ -1,33 +1,62 @@
 html {
   overflow-y: scroll;
+  color: rgb(53,1,14);
 }
 
-h1 {
+body {
+  font-size: 110%;
+}
+
+header {
+  background-color: rgb(250,243,212);
+  padding: .5em;
+  color: rgb(53,1,14);
+  border-bottom: 1px solid rgb(230,218,197);
+}
+
+header h1 {
   text-align: center;
+  font-size: 300%;
 }
 
 .search-bar, .results {
   width: 70%;
   margin: 0 auto;
+  max-width: 800px;
 }
 
 .search-bar {
   margin-bottom: 1em;
-  max-width: 600px;
 }
 
-.search-bar input {
+.search-bar.pure-form input {
   display: block;
   width: 100%;
+  border-radius: 0;
 }
 
-.results {
-  max-width: 700px;
+.search-bar.pure-form input:focus {
+  border-color: rgb(150,150,150);
 }
 
 .package {
-  font-size: 80%;
   padding: 1em 0;
+  font-size: 90%;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(53,1,14);
+}
+
+a.name {
+  font-weight: bold;
+  font-size: 150%;
+  color: rgb(168,35,83);
+}
+
+a.github-link {
+  font-size: 80%;
 }
 
 .package h2 {
@@ -35,5 +64,9 @@ h1 {
 }
 
 .package + .package {
-  border-top: 1px solid #dddddd;
+  border-top: 1px solid rgb(230,218,197);
+}
+
+.metas {
+  padding-left: 1em;
 }

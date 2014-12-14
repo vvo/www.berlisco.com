@@ -1,4 +1,3 @@
-.last_sequence
-.last_package
+state/
 frontend/build/
 frontend/bundle.js
