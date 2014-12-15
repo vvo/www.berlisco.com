@@ -51,7 +51,7 @@ function replicate() {
 }
 
 function end(packagesDone) {
-  debug('%d packages  were replicated', packagesDone);
+  debug('%d packages were replicated', packagesDone);
 
   // stop the agent, everything is finished
   // Node.JS will exit after this line
