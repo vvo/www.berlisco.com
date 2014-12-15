@@ -19,6 +19,7 @@ var html = fs.readFileSync(__dirname + '/package.html', 'utf8');
 var $search = document.querySelector('.search-bar input');
 var $results = document.querySelector('.results');
 var lastSearch;
+var pageLoad = true;
 
 $search.addEventListener('keyup', debounce(search, 100, {
   leading: false,
@@ -61,6 +62,11 @@ function parse(ctx, next) {
 function show(ctx) {
   if (!ctx.query.q) {
     return;
+  }
+
+  if (pageLoad && ctx.query.q !== undefined) {
+    $search.value = ctx.query.q;
+    pageLoad = false;
   }
 
   index.search(ctx.query.q, function(success, content) {
