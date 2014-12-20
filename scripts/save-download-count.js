@@ -3,7 +3,7 @@ var path = require('path');
 var Promise = require('promise');
 var PouchDB = require('pouchdb');
 
-var debug = require('debug')('npmfind:save-download-count');
+var debug = require('debug')('berlisco:save-download-count');
 var downloadCount = require('../download-count');
 
 var keepaliveAgent = new HttpsAgent();

@@ -15,7 +15,7 @@ var client = new Algolia(
 var index = client.initIndex(process.env.ALGOLIA_NPMREGISTRY_INDEX_NAME);
 
 var debugLabelSuffix = process.env.DRY_MODE === 'yes' ? '-DRY-MODE' : '';
-var debug = require('debug')('npmfind:save-to-algolia' + debugLabelSuffix);
+var debug = require('debug')('berlisco:save-to-algolia' + debugLabelSuffix);
 
 module.exports = saveToAlgolia;
 

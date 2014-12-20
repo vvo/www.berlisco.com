@@ -5,7 +5,7 @@ var HttpsAgent = require('agentkeepalive').HttpsAgent;
 var path = require('path');
 var PouchDB = require('pouchdb');
 
-var debug = require('debug')('npmfind:watch-changes');
+var debug = require('debug')('berlisco:watch-changes');
 var keepaliveAgent = new HttpsAgent();
 
 var replicationStore = require('../replication-store')(

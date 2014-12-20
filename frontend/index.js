@@ -1,11 +1,12 @@
 var AlgoliaSearch = require('algoliasearch');
 var debounce = require('lodash.debounce');
+var debug = require('debug')('berlisco:main');
+window.debug = require('debug');
 var fs = require('fs');
 var hyperglue = require('hyperglue');
 var page = require('page');
 var qs = require('querystring');
 var truncate = require('truncate');
-
 
 var client = new AlgoliaSearch(
   process.env.ALGOLIA_APP_ID,
@@ -19,7 +20,10 @@ var html = fs.readFileSync(__dirname + '/package.html', 'utf8');
 var $search = document.querySelector('.search-bar input');
 var $results = document.querySelector('.results');
 var lastSearch;
+var latestSearchTime;
 var pageLoad = true;
+
+insertSVGIcons();
 
 $search.addEventListener('keyup', debounce(search, 100, {
   leading: false,
@@ -34,6 +38,8 @@ function search() {
     // need to check for modifiers keys explicitly
     return;
   }
+
+  latestSearchTime = Date.now();
 
   emptyElement($results);
 
@@ -60,17 +66,30 @@ function parse(ctx, next) {
 }
 
 function show(ctx) {
+  var currentSearchTime = Date.now();
+
   if (!ctx.query.q) {
+    debug('nothing to search');
     return;
   }
 
-  if (pageLoad && ctx.query.q !== undefined) {
+  // fill default search value at pageLoad
+  if (pageLoad && $search.value === '' && ctx.query.q !== undefined) {
+    debug('set initial search value to `%s`', ctx.query.q);
     $search.value = ctx.query.q;
-    pageLoad = false;
   }
 
+  pageLoad = false;
+
   index.search(ctx.query.q, function(success, content) {
+    // a more recent search was triggered, forget this response
+    if (latestSearchTime > currentSearchTime) {
+      debug('dropped results for `%s` because a more recent search happened', ctx.query.q);
+      return;
+    }
+
     if (content.hits.length === 0) {
+      debug('nothing found for `%s`', ctx.query.q);
       notFound();
       return;
     }
@@ -126,3 +145,10 @@ document.addEventListener('keyup', function bindShortcut(e) {
 
   $search.focus();
 });
+
+function insertSVGIcons() {
+  var icons = fs.readFileSync(__dirname + '/svgdefs.svg', 'utf-8');
+  var DOMIcons = document.createElement('div');
+  DOMIcons.innerHTML = icons;
+  document.body.appendChild(DOMIcons);
+}

@@ -1,8 +1,8 @@
 {
-  "name": "www.npmfind.com",
+  "name": "www.berlisco.com",
   "private": true,
   "version": "1.0.0",
-  "description": "",
+  "description": "Instant npmjs search",
   "main": "index.js",
   "scripts": {
     "build-js": "browserify frontend/index.js | uglifyjs -mc > frontend/bundle.js",

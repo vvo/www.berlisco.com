@@ -15,7 +15,7 @@ var client = new Algolia(
 var index = client.initIndex(process.env.ALGOLIA_NPMREGISTRY_INDEX_NAME);
 
 var debugLabelSuffix = process.env.DRY_MODE === 'yes' ? '-DRY-MODE' : '';
-var debug = require('debug')('npmfind:update-algolia-object' + debugLabelSuffix);
+var debug = require('debug')('berlisco:update-algolia-object' + debugLabelSuffix);
 
 module.exports = updateAlgoliaObject;
 
