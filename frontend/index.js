@@ -7,6 +7,7 @@ var hyperglue = require('hyperglue');
 var page = require('page');
 var qs = require('querystring');
 var truncate = require('truncate');
+var request = require('superagent');
 
 var client = new AlgoliaSearch(
   process.env.ALGOLIA_APP_ID,
@@ -25,7 +26,7 @@ var pageLoad = true;
 
 insertSVGIcons();
 
-$search.addEventListener('keyup', debounce(search, 100, {
+$search.addEventListener('keyup', debounce(search, 155, {
   leading: false,
   trailing: true
 }));
@@ -147,8 +148,16 @@ document.addEventListener('keyup', function bindShortcut(e) {
 });
 
 function insertSVGIcons() {
-  var icons = fs.readFileSync(__dirname + '/svgdefs.svg', 'utf-8');
-  var DOMIcons = document.createElement('div');
-  DOMIcons.innerHTML = icons;
-  document.body.appendChild(DOMIcons);
+  request
+    .get('/svgdefs.svg')
+    .end(function downloaded(err, res) {
+      if (err || res.error) {
+        debug('cannot get svg icons');
+        return;
+      }
+
+      var DOMIcons = document.createElement('div');
+      DOMIcons.innerHTML = res.text;
+      document.body.appendChild(DOMIcons);
+    });
 }
