@@ -2,11 +2,353 @@
 	display: inline-block;
 	color: #000000;
 	fill: currentColor;
-	background-color: ;
+}
+.icon-npm-logo {
+	width: 128px;
+	height: 50px;
+}
+#icon-npm-logo .path1 {
+	fill: rgb(255, 255, 255);
+}
+#icon-npm-logo .path2 {
+	fill: rgb(205, 54, 50);
+}
+.icon-browserify-logo {
+	width: 43px;
+	height: 50px;
+}
+#icon-browserify-logo .path1 {
+	fill: rgb(61, 106, 146);
+}
+#icon-browserify-logo .path2 {
+	fill: rgb(34, 34, 34);
+}
+#icon-browserify-logo .path3 {
+	fill: rgb(61, 106, 146);
+}
+#icon-browserify-logo .path4 {
+	fill: rgb(230, 179, 90);
+}
+#icon-browserify-logo .path5 {
+	fill: rgb(230, 179, 90);
+}
+#icon-browserify-logo .path6 {
+	fill: rgb(230, 179, 90);
+}
+#icon-browserify-logo .path7 {
+	fill: rgb(230, 179, 90);
+}
+#icon-browserify-logo .path8 {
+	fill: rgb(230, 179, 90);
+}
+#icon-browserify-logo .path9 {
+	fill: rgb(230, 179, 90);
+}
+#icon-browserify-logo .path10 {
+	fill: rgb(230, 179, 90);
+}
+#icon-browserify-logo .path11 {
+	fill: rgb(230, 179, 90);
+}
+#icon-browserify-logo .path12 {
+	fill: rgb(230, 179, 90);
+}
+#icon-browserify-logo .path13 {
+	fill: rgb(230, 179, 90);
+}
+#icon-browserify-logo .path14 {
+	fill: rgb(230, 179, 90);
+}
+#icon-browserify-logo .path15 {
+	fill: rgb(230, 179, 90);
+}
+#icon-browserify-logo .path16 {
+	fill: rgb(230, 179, 90);
+}
+#icon-browserify-logo .path17 {
+	fill: rgb(230, 179, 90);
+}
+#icon-browserify-logo .path18 {
+	fill: rgb(230, 179, 90);
+}
+#icon-browserify-logo .path19 {
+	fill: rgb(230, 179, 90);
+}
+#icon-browserify-logo .path20 {
+	fill: rgb(230, 179, 90);
+}
+#icon-browserify-logo .path21 {
+	fill: rgb(230, 179, 90);
+}
+#icon-browserify-logo .path22 {
+	fill: rgb(230, 179, 90);
+}
+#icon-browserify-logo .path23 {
+	fill: rgb(230, 179, 90);
+}
+#icon-browserify-logo .path24 {
+	fill: rgb(230, 179, 90);
+}
+#icon-browserify-logo .path25 {
+	fill: rgb(230, 179, 90);
+}
+#icon-browserify-logo .path26 {
+	fill: rgb(100, 136, 197);
+}
+#icon-browserify-logo .path27 {
+	fill: rgb(200, 220, 235);
+}
+#icon-browserify-logo .path28 {
+	fill: rgb(230, 179, 90);
+}
+#icon-browserify-logo .path29 {
+	fill: rgb(230, 179, 90);
+}
+#icon-browserify-logo .path30 {
+	fill: rgb(230, 179, 90);
+}
+#icon-browserify-logo .path31 {
+	fill: rgb(230, 179, 90);
+}
+.icon-grunt-logo {
+	width: 43px;
+	height: 50px;
+}
+#icon-grunt-logo .path1 {
+	fill: rgb(70, 48, 20);
+}
+#icon-grunt-logo .path2 {
+	fill: rgb(70, 48, 20);
+}
+#icon-grunt-logo .path3 {
+	fill: rgb(251, 169, 25);
+}
+#icon-grunt-logo .path4 {
+	fill: rgb(231, 135, 36);
+}
+#icon-grunt-logo .path5 {
+	fill: rgb(231, 135, 36);
+}
+#icon-grunt-logo .path6 {
+	fill: rgb(231, 135, 36);
+}
+#icon-grunt-logo .path7 {
+	fill: rgb(231, 135, 36);
+}
+#icon-grunt-logo .path8 {
+	fill: rgb(231, 135, 36);
+}
+#icon-grunt-logo .path9 {
+	fill: rgb(231, 135, 36);
+}
+#icon-grunt-logo .path10 {
+	fill: rgb(231, 135, 36);
+}
+#icon-grunt-logo .path11 {
+	fill: rgb(231, 135, 36);
+}
+#icon-grunt-logo .path12 {
+	fill: rgb(231, 135, 36);
+}
+#icon-grunt-logo .path13 {
+	fill: rgb(231, 135, 36);
+}
+#icon-grunt-logo .path14 {
+	fill: rgb(231, 135, 36);
+}
+#icon-grunt-logo .path15 {
+	fill: rgb(253, 193, 104);
+}
+#icon-grunt-logo .path16 {
+	fill: rgb(251, 169, 25);
+}
+#icon-grunt-logo .path17 {
+	fill: rgb(255, 255, 255);
+}
+#icon-grunt-logo .path18 {
+	fill: rgb(201, 201, 201);
+}
+#icon-grunt-logo .path19 {
+	fill: rgb(70, 48, 20);
+}
+#icon-grunt-logo .path20 {
+	fill: rgb(70, 48, 20);
+}
+#icon-grunt-logo .path21 {
+	fill: rgb(70, 48, 20);
+}
+#icon-grunt-logo .path22 {
+	fill: rgb(70, 48, 20);
+}
+#icon-grunt-logo .path23 {
+	fill: rgb(70, 48, 20);
+}
+#icon-grunt-logo .path24 {
+	fill: rgb(70, 48, 20);
+}
+#icon-grunt-logo .path25 {
+	fill: rgb(70, 48, 20);
+}
+#icon-grunt-logo .path26 {
+	fill: rgb(70, 48, 20);
+}
+#icon-grunt-logo .path27 {
+	fill: rgb(70, 48, 20);
+}
+#icon-grunt-logo .path28 {
+	fill: rgb(70, 48, 20);
+}
+#icon-grunt-logo .path29 {
+	fill: rgb(70, 48, 20);
+}
+#icon-grunt-logo .path30 {
+	fill: rgb(70, 48, 20);
+}
+#icon-grunt-logo .path31 {
+	fill: rgb(70, 48, 20);
+}
+#icon-grunt-logo .path32 {
+	fill: rgb(70, 48, 20);
+}
+#icon-grunt-logo .path33 {
+	fill: rgb(70, 48, 20);
+}
+#icon-grunt-logo .path34 {
+	fill: rgb(255, 255, 255);
+}
+#icon-grunt-logo .path35 {
+	fill: rgb(201, 201, 201);
+}
+#icon-grunt-logo .path36 {
+	fill: rgb(70, 48, 20);
+}
+#icon-grunt-logo .path37 {
+	fill: rgb(70, 48, 20);
+}
+#icon-grunt-logo .path38 {
+	fill: rgb(231, 135, 36);
+}
+#icon-grunt-logo .path39 {
+	fill: rgb(231, 135, 36);
+}
+#icon-grunt-logo .path40 {
+	fill: rgb(231, 135, 36);
+}
+#icon-grunt-logo .path41 {
+	fill: rgb(231, 135, 36);
+}
+#icon-grunt-logo .path42 {
+	fill: rgb(231, 135, 36);
+}
+#icon-grunt-logo .path43 {
+	fill: rgb(231, 135, 36);
+}
+#icon-grunt-logo .path44 {
+	fill: rgb(231, 135, 36);
+}
+#icon-grunt-logo .path45 {
+	fill: rgb(231, 135, 36);
+}
+#icon-grunt-logo .path46 {
+	fill: rgb(231, 135, 36);
+}
+#icon-grunt-logo .path47 {
+	fill: rgb(231, 135, 36);
+}
+#icon-grunt-logo .path48 {
+	fill: rgb(231, 135, 36);
+}
+#icon-grunt-logo .path49 {
+	fill: rgb(253, 193, 104);
+}
+#icon-grunt-logo .path50 {
+	fill: rgb(251, 169, 25);
+}
+#icon-grunt-logo .path51 {
+	fill: rgb(255, 255, 255);
+}
+#icon-grunt-logo .path52 {
+	fill: rgb(201, 201, 201);
+}
+#icon-grunt-logo .path53 {
+	fill: rgb(70, 48, 20);
+}
+#icon-grunt-logo .path54 {
+	fill: rgb(70, 48, 20);
+}
+#icon-grunt-logo .path55 {
+	fill: rgb(70, 48, 20);
+}
+#icon-grunt-logo .path56 {
+	fill: rgb(70, 48, 20);
+}
+#icon-grunt-logo .path57 {
+	fill: rgb(70, 48, 20);
+}
+#icon-grunt-logo .path58 {
+	fill: rgb(70, 48, 20);
+}
+#icon-grunt-logo .path59 {
+	fill: rgb(70, 48, 20);
+}
+#icon-grunt-logo .path60 {
+	fill: rgb(70, 48, 20);
+}
+#icon-grunt-logo .path61 {
+	fill: rgb(70, 48, 20);
+}
+#icon-grunt-logo .path62 {
+	fill: rgb(70, 48, 20);
+}
+#icon-grunt-logo .path63 {
+	fill: rgb(70, 48, 20);
+}
+#icon-grunt-logo .path64 {
+	fill: rgb(70, 48, 20);
+}
+#icon-grunt-logo .path65 {
+	fill: rgb(70, 48, 20);
+}
+#icon-grunt-logo .path66 {
+	fill: rgb(70, 48, 20);
+}
+#icon-grunt-logo .path67 {
+	fill: rgb(231, 135, 36);
+}
+#icon-grunt-logo .path68 {
+	fill: rgb(70, 48, 20);
+}
+#icon-grunt-logo .path69 {
+	fill: rgb(70, 48, 20);
+}
+#icon-grunt-logo .path70 {
+	fill: rgb(255, 255, 255);
+}
+#icon-grunt-logo .path71 {
+	fill: rgb(201, 201, 201);
+}
+#icon-grunt-logo .path72 {
+	fill: rgb(70, 48, 20);
+}
+#icon-grunt-logo .path73 {
+	fill: rgb(70, 48, 20);
+}
+#icon-grunt-logo .path74 {
+	fill: rgb(70, 48, 20);
+}
+.icon-algolia-logo {
+	width: 159px;
+	height: 50px;
+}
+#icon-algolia-logo .path1 {
+	fill: rgb(59, 151, 208);
+}
+#icon-algolia-logo .path2 {
+	fill: rgb(85, 86, 86);
 }
 .icon-berlisco-logo {
-	width: 55px;
-	height: 64px;
+	width: 43px;
+	height: 50px;
 }
 #icon-berlisco-logo .path1 {
 	fill: rgb(134, 134, 191);
@@ -30,178 +372,82 @@
 	fill: rgb(168, 35, 83);
 }
 #icon-berlisco-logo .path8 {
-	fill: rgb(68, 68, 68);
+	fill: rgb(168, 35, 82);
 }
 #icon-berlisco-logo .path9 {
-	fill: rgb(68, 68, 68);
-	opacity: 0.799000024795532;
+	fill: rgb(168, 35, 82);
+}
+#icon-berlisco-logo .path10 {
+	fill: rgb(168, 35, 82);
+}
+#icon-berlisco-logo .path11 {
+	fill: rgb(168, 35, 82);
+}
+#icon-berlisco-logo .path12 {
+	fill: rgb(168, 35, 83);
+	opacity: 0.799107134342194;
 
 }
-.icon-algolia-logo {
-	width: 204px;
-	height: 64px;
+#icon-berlisco-logo .path13 {
+	fill: rgb(168, 35, 83);
+	opacity: 0.799107134342194;
+
 }
-#icon-algolia-logo .path1 {
-	fill: rgb(59, 151, 208);
+#icon-berlisco-logo .path14 {
+	fill: rgb(168, 35, 83);
+	opacity: 0.799107134342194;
+
 }
-#icon-algolia-logo .path2 {
-	fill: rgb(85, 86, 86);
-}
-.icon-browserify-logo {
-	width: 55px;
-	height: 64px;
-}
-#icon-browserify-logo .path1 {
-	fill: rgb(61, 106, 146);
-}
-#icon-browserify-logo .path2 {
-	fill: rgb(34, 34, 34);
-}
-#icon-browserify-logo .path3 {
-	fill: rgb(61, 106, 146);
-}
-#icon-browserify-logo .path4 {
-	fill: rgb(230, 179, 90);
-}
-#icon-browserify-logo .path5 {
-	fill: rgb(100, 136, 197);
-}
-#icon-browserify-logo .path6 {
-	fill: rgb(200, 220, 235);
-}
-#icon-browserify-logo .path7 {
-	fill: rgb(230, 179, 90);
+#icon-berlisco-logo .path15 {
+	fill: rgb(168, 35, 83);
+	opacity: 0.799107134342194;
+
 }
 .icon-github-logo {
-	width: 55px;
-	height: 64px;
-}
-.icon-grunt-logo {
-	width: 55px;
-	height: 64px;
-}
-#icon-grunt-logo .path1 {
-	fill: rgb(70, 48, 20);
-}
-#icon-grunt-logo .path2 {
-	fill: rgb(251, 169, 25);
-}
-#icon-grunt-logo .path3 {
-	fill: rgb(231, 135, 36);
-}
-#icon-grunt-logo .path4 {
-	fill: rgb(231, 135, 36);
-}
-#icon-grunt-logo .path5 {
-	fill: rgb(253, 193, 104);
-}
-#icon-grunt-logo .path6 {
-	fill: rgb(251, 169, 25);
-}
-#icon-grunt-logo .path7 {
-	fill: rgb(255, 255, 255);
-}
-#icon-grunt-logo .path8 {
-	fill: rgb(201, 201, 201);
-}
-#icon-grunt-logo .path9 {
-	fill: rgb(70, 48, 20);
-}
-#icon-grunt-logo .path10 {
-	fill: rgb(70, 48, 20);
-}
-#icon-grunt-logo .path11 {
-	fill: rgb(255, 255, 255);
-}
-#icon-grunt-logo .path12 {
-	fill: rgb(201, 201, 201);
-}
-#icon-grunt-logo .path13 {
-	fill: rgb(70, 48, 20);
-}
-#icon-grunt-logo .path14 {
-	fill: rgb(70, 48, 20);
-}
-#icon-grunt-logo .path15 {
-	fill: rgb(231, 135, 36);
-}
-#icon-grunt-logo .path16 {
-	fill: rgb(231, 135, 36);
-}
-#icon-grunt-logo .path17 {
-	fill: rgb(253, 193, 104);
-}
-#icon-grunt-logo .path18 {
-	fill: rgb(251, 169, 25);
-}
-#icon-grunt-logo .path19 {
-	fill: rgb(255, 255, 255);
-}
-#icon-grunt-logo .path20 {
-	fill: rgb(201, 201, 201);
-}
-#icon-grunt-logo .path21 {
-	fill: rgb(70, 48, 20);
-}
-#icon-grunt-logo .path22 {
-	fill: rgb(70, 48, 20);
-}
-#icon-grunt-logo .path23 {
-	fill: rgb(231, 135, 36);
-}
-#icon-grunt-logo .path24 {
-	fill: rgb(70, 48, 20);
-}
-#icon-grunt-logo .path25 {
-	fill: rgb(255, 255, 255);
-}
-#icon-grunt-logo .path26 {
-	fill: rgb(201, 201, 201);
-}
-#icon-grunt-logo .path27 {
-	fill: rgb(70, 48, 20);
-}
-#icon-grunt-logo .path28 {
-	fill: rgb(70, 48, 20);
-}
-#icon-grunt-logo .path29 {
-	fill: rgb(70, 48, 20);
-}
-#icon-grunt-logo .path30 {
-	fill: rgb(70, 48, 20);
+	width: 43px;
+	height: 50px;
 }
 .icon-gulp-logo {
-	width: 55px;
-	height: 64px;
+	width: 43px;
+	height: 50px;
 }
-.icon-npm-logo {
-	width: 55px;
-	height: 64px;
+#icon-gulp-logo .path1 {
+	fill: currentcolor;
 }
-#icon-npm-logo .path1 {
-	fill: rgb(134, 134, 191);
+#icon-gulp-logo .path2 {
+	fill: currentcolor;
 }
-#icon-npm-logo .path2 {
-	fill: rgb(215, 215, 255);
+.icon-npm-logo-3d {
+	width: 43px;
+	height: 50px;
 }
-#icon-npm-logo .path3 {
-	fill: rgb(175, 175, 222);
-}
-#icon-npm-logo .path4 {
+#icon-npm-logo-3d .path1 {
 	fill: rgb(230, 230, 230);
 }
-#icon-npm-logo .path5 {
-	fill: rgb(249, 249, 249);
+#icon-npm-logo-3d .path2 {
+	fill: rgb(242, 242, 242);
 }
-#icon-npm-logo .path6 {
-	fill: rgb(179, 179, 179);
+#icon-npm-logo-3d .path3 {
+	fill: rgb(230, 230, 230);
 }
-#icon-npm-logo .path7 {
+#icon-npm-logo-3d .path4 {
+	fill: rgb(204, 204, 204);
+}
+#icon-npm-logo-3d .path5 {
 	fill: rgb(203, 56, 55);
 }
-#icon-npm-logo .path8 {
-	fill: rgb(255, 255, 255);
-}
-#icon-npm-logo .path9 {
+#icon-npm-logo-3d .path6 {
 	fill: rgb(203, 56, 55);
+}
+#icon-npm-logo-3d .path7 {
+	fill: rgb(203, 56, 55);
+}
+#icon-npm-logo-3d .path8 {
+	fill: rgb(204, 204, 204);
+}
+#icon-npm-logo-3d .path9 {
+	fill: rgb(204, 204, 204);
+}
+#icon-npm-logo-3d .path10 {
+	fill: rgb(204, 204, 204);
 }

@@ -2,6 +2,7 @@ var AlgoliaSearch = require('algoliasearch');
 var debounce = require('lodash.debounce');
 var debug = require('debug')('berlisco:main');
 window.debug = require('debug');
+var classes = require('dom-classes');
 var fs = require('fs');
 var hyperglue = require('hyperglue');
 var page = require('page');
@@ -100,27 +101,32 @@ function show(ctx) {
 }
 
 function addToResults(pkg) {
-  var repo = {};
+  var githubLink;
 
   if (pkg.github) {
-    repo.url = 'https://github.com/' + pkg.github.user + '/' + pkg.github.repo;
-    repo.text = truncate(pkg.github.user + '/' + pkg.github.repo, 20);
-  } else {
-    repo.url = 'https://www.npmjs.org/doc/files/package.json.html#repository';
-    repo.text = 'no repository';
+    githubLink = 'https://github.com/' + pkg.github.user + '/' + pkg.github.repo;
   }
 
-  $results.appendChild(hyperglue(html, {
-    '.name': {
-      href: '//www.npmjs.com/package/' + pkg.name,
-      _text: pkg.name
+  var npmjsLink = 'https://www.npmjs.com/package/' + pkg.name;
+
+  var pkgElement = hyperglue(html, {
+    '.name': pkg.name,
+    '.npmjs-link': {
+      href: npmjsLink
     },
-    '.description': truncate(pkg.description, 100),
     '.github-link': {
-      href: repo.url,
-      _text: repo.text
-    }
-  }));
+      href: githubLink
+    },
+    '.description': truncate(pkg.description, 100)
+  });
+
+  // handle cases where there is no github link
+  if (!githubLink) {
+    classes.add(pkgElement.querySelector('.github-link'), 'hide');
+    classes.remove(pkgElement.querySelector('.no-gh'), 'hide');
+  }
+
+  $results.appendChild(pkgElement);
 }
 
 function notFound() {

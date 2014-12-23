@@ -8,18 +8,53 @@ body {
   font-size: 110%;
 }
 
-header {
+a {
+  color: rgb(53,1,14);
+}
+
+.icon {
+  vertical-align: middle;
+}
+
+.hide {
+  display: none;
+}
+
+.site-header {
   background-color: rgb(250,243,212);
   padding: .5em;
   color: rgb(53,1,14);
   border-bottom: 1px solid rgb(230,218,197);
 }
 
-header .icon-berlisco-logo {
+.site-header .icon-berlisco-logo {
   display: block;
   width: 9em;
   height: 10em;
   margin: 1em auto;
+}
+
+.tagline {
+  position: absolute;
+  right: 0;
+  text-align: center;
+  bottom: 0;
+  font-size: 50%;
+  margin: 0;
+  display: flex;
+  color: rgb(150,150,150);
+  line-height: 1.8em;
+  height: 1.8em;
+}
+
+.tagline .icon-algolia-logo {
+  width: 6em;
+  height: 1.8em;
+}
+
+.tagline .icon-npm-logo {
+  width: 5.5em;
+  height: 1.8em;
 }
 
 .search-bar, .results {
@@ -27,30 +62,10 @@ header .icon-berlisco-logo {
   margin: 0 auto;
   max-width: 800px;
   position: relative;
-  padding-bottom: 1em;
-}
-
-.tagline {
-  position: absolute;
-  right: 0;
-  text-align: center;
-  bottom: -1em;
-  font-size: 70%;
-  margin: 0;
-}
-
-.tagline, .tagline a {
-  color: rgb(150,150,150);
-}
-
-.tagline .icon-algolia-logo {
-  width: 6em;
-  height: 1.8em;
-  line-height: 1.8em;
 }
 
 .search-bar {
-  margin-bottom: 1em;
+  padding-bottom: 1em;
 }
 
 .search-bar.pure-form input {
@@ -63,27 +78,36 @@ header .icon-berlisco-logo {
   border-color: rgb(150,150,150);
 }
 
-.package {
-  padding: 1em 0;
-  font-size: 90%;
-}
-
-a {
-  color: rgb(53,1,14);
+.results {
+  padding-top: 1em;
 }
 
 .results a {
   text-decoration: none;
 }
 
-a.name {
-  font-weight: bold;
-  font-size: 150%;
-  color: rgb(168,35,83);
+.package {
+  padding: 1em 0;
+  font-size: 90%;
 }
 
-a.github-link {
-  font-size: 80%;
+.package header {
+  display: flex;
+  height: 2em;
+  line-height: 2em;
+}
+
+.package header .name {
+  font-weight: bold;
+  font-size: 170%;
+  color: rgb(168,35,83);
+  margin-left: .5em;
+}
+
+.package header .icon {
+  width: 2em;
+  height: 2em;
+  margin-right: .5em;
 }
 
 .package h2 {
@@ -94,10 +118,12 @@ a.github-link {
   border-top: 1px solid rgb(230,218,197);
 }
 
-.metas {
+.package .metas {
   padding-left: 1em;
 }
 
-.icon {
-  vertical-align: middle;
+.disabled {
+  opacity: .3;
+  cursor: default;
+  pointer-events: none;
 }

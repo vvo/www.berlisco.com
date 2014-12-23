@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="128"
+   height="49.919998"
+   viewBox="0 0 128 49.919998"
+   version="1.1"
+   id="svg8592"
+   inkscape:version="0.48.5 r10040"
+   sodipodi:docname="npm-logo.svg">
+  <metadata
+     id="metadata8604">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>npm-logo</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1366"
+     inkscape:window-height="768"
+     id="namedview8602"
+     showgrid="false"
+     inkscape:zoom="1"
+     inkscape:cx="183.74366"
+     inkscape:cy="-8.6630605"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg8592"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0">
+    <inkscape:grid
+       type="xygrid"
+       id="grid8606"
+       empspacing="5"
+       visible="true"
+       enabled="true"
+       snapvisiblegridlinesonly="true"
+       originx="0px"
+       originy="0.01744px" />
+  </sodipodi:namedview>
+  <title
+     id="title8594">npm-logo</title>
+  <description
+     id="description8596">Created with Sketch (http://www.bohemiancoding.com/sketch)</description>
+  <defs
+     id="defs8598" />
+  <rect
+     style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:1.89999998;stroke-opacity:1;stroke-dasharray:none"
+     id="rect8608"
+     width="122.12014"
+     height="39.349823"
+     x="3.6183743"
+     y="3.658457" />
+  <g
+     id="Page 1"
+     transform="scale(0.256,0.256)"
+     style="fill:none;stroke:none">
+    <path
+       d="m 0,0 500,0 0,168 -250,0 0,27 -111,0 0,-27 -139,0 z m 28.304251,139.49316 55.231987,3.3e-4 10e-7,-83.934198 27.768011,0 0,83.934198 27.51823,0 0,-111.000546 -110.518229,0 z M 166.33333,28 l 0.33334,140 55,0 0,-27.93269 55.67917,0 0,-112.06731 z M 221,55 l 29,0 0,57 -29,0 z m 84.33333,-27 0,111 55.33132,0 0,-83.333992 27.66668,0 0,83.334542 27.63656,0 0,-83.00055 27.69677,0 0,83 27.67404,0 0,-111 z m 0,0"
+       id="Rectangle 1"
+       inkscape:connector-curvature="0"
+       style="fill:#cd3632" />
+  </g>
+</svg>

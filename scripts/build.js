@@ -3,6 +3,8 @@ var filter = require('gulp-filter');
 var gulp = require('gulp');
 var gulpif = require('gulp-if');
 var minifyHtml = require('gulp-minify-html');
+var path = require('path');
+var pngquant = require('imagemin-pngquant');
 var rev = require('gulp-rev');
 var revReplace = require('gulp-rev-replace');
 var svgmin = require('gulp-svgmin');
@@ -13,19 +15,21 @@ var assets = [
   'frontend/index.html',
   'frontend/svgdefs.svg',
   'frontend/bundle.js',
-  'frontend/favicon.png'
+  'frontend/favicons/*.png'
 ];
 // there's no css because they will be concatenated
 
 var assetsFilter = filter([
-  '*.svg', 'bundle.css', 'bundle.js', 'favicon.png'
+  '*.svg', 'bundle.css', 'bundle.js', 'favicons/*.png'
 ]);
 
 var indexFilter = filter('index.html');
 var userefAssets = useref.assets();
 
 gulp
-  .src(['frontend/index.html'].concat(assets))
+  .src(['frontend/index.html'].concat(assets), {
+    base: path.join(__dirname, '..', 'frontend')
+  })
   // let's work on the index page to
   // concatenate needed assets
   .pipe(indexFilter)
@@ -45,6 +49,10 @@ gulp
       cleanupIDs: false
     }]
   })))
+  .pipe(gulpif(/\.png$/, pngquant({
+    speed: 1,
+    quality: '65-80'
+  })()))
   // rev them (md5)
   .pipe(rev())
   .pipe(assetsFilter.restore())
