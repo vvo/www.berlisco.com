@@ -19,8 +19,9 @@ var index = client.initIndex(
 );
 
 var html = fs.readFileSync(__dirname + '/package.html', 'utf8');
-var $search = document.querySelector('.search-bar input');
+var loader = new Loader();
 var $results = document.querySelector('.results');
+var $search = document.querySelector('.search-bar input');
 var lastSearch;
 var latestSearchTime;
 var pageLoad = true;
@@ -83,6 +84,8 @@ function show(ctx) {
 
   pageLoad = false;
 
+  loader.show();
+
   index.search(ctx.query.q, function(success, content) {
     // a more recent search was triggered, forget this response
     if (latestSearchTime > currentSearchTime) {
@@ -97,6 +100,7 @@ function show(ctx) {
     }
 
     content.hits.forEach(addToResults);
+    loader.hide();
   });
 }
 
@@ -164,6 +168,31 @@ function insertSVGIcons() {
 
       var DOMIcons = document.createElement('div');
       DOMIcons.innerHTML = res.text;
+      DOMIcons
+        .querySelector('svg')
+        .setAttribute('display', 'none');
       document.body.appendChild(DOMIcons);
     });
 }
+
+// only show a loader after 200ms
+function Loader() {
+  this.$element = document.querySelector('.loader');
+}
+
+Loader.prototype.show = function() {
+  if (this.timer) {
+    clearTimeout(this.timer);
+  }
+
+  this.timer = setTimeout(this._show.bind(this), 200);
+};
+
+Loader.prototype._show = function() {
+  classes.remove(this.$element, 'hide');
+};
+
+Loader.prototype.hide = function() {
+  clearTimeout(this.timer);
+  classes.add(this.$element, 'hide');
+};

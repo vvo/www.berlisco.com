@@ -4,10 +4,6 @@ html {
   font-family: Tahoma, Verdana, Segoe, sans-serif;
 }
 
-body {
-  font-size: 110%;
-}
-
 a {
   color: rgb(53,1,14);
 }
@@ -29,8 +25,8 @@ a {
 
 .site-header .icon-berlisco-logo {
   display: block;
-  width: 9em;
-  height: 10em;
+  width: 5em;
+  height: 6em;
   margin: 1em auto;
 }
 
@@ -57,11 +53,29 @@ a {
   height: 1.8em;
 }
 
+.loader {
+  margin: 1em auto;
+  width: 3em;
+}
+
+.loader .icon {
+  color: rgb(168,35,83);
+  width: 3em;
+  height: 3em;
+}
+
 .search-bar, .results {
   width: 70%;
   margin: 0 auto;
   max-width: 800px;
   position: relative;
+}
+
+/* screen <= 568px */
+@media all and (max-width: 35.5em) {
+  .search-bar, .results {
+    width: 90%;
+  }
 }
 
 .search-bar {
@@ -93,25 +107,25 @@ a {
 
 .package header {
   display: flex;
-  height: 2em;
+  min-height: 2em;
   line-height: 2em;
+  font-size: 90%;
 }
 
 .package header .name {
   font-weight: bold;
-  font-size: 170%;
+  font-size: 150%;
   color: rgb(168,35,83);
-  margin-left: .5em;
+  margin-left: .2em;
+}
+
+.package header a {
+  margin-right: .2em;
 }
 
 .package header .icon {
-  width: 2em;
-  height: 2em;
-  margin-right: .5em;
-}
-
-.package h2 {
-  margin-top: 0;
+  width: 1.5em;
+  height: 1.5em;
 }
 
 .package + .package {
