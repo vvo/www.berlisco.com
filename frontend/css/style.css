@@ -33,7 +33,6 @@ a {
 .tagline {
   position: absolute;
   right: 0;
-  text-align: center;
   bottom: 0;
   font-size: 50%;
   margin: 0;
@@ -64,22 +63,15 @@ a {
   height: 3em;
 }
 
+.search-bar {
+  padding-bottom: 1.5em;
+}
+
 .search-bar, .results {
-  width: 70%;
+  width: 90%;
   margin: 0 auto;
   max-width: 800px;
   position: relative;
-}
-
-/* screen <= 568px */
-@media all and (max-width: 35.5em) {
-  .search-bar, .results {
-    width: 90%;
-  }
-}
-
-.search-bar {
-  padding-bottom: 1em;
 }
 
 .search-bar.pure-form input {
@@ -141,3 +133,15 @@ a {
   cursor: default;
   pointer-events: none;
 }
+
+/* screen >= 568px */
+@media all and (min-width: 35.5em) {
+  .tagline {
+    font-size: 60%;
+  }
+
+  .search-bar {
+    padding-bottom: 1.5em;
+  }
+}
+

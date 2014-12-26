@@ -93,6 +93,8 @@ function show(ctx) {
       return;
     }
 
+    loader.hide();
+
     if (content.hits.length === 0) {
       debug('nothing found for `%s`', ctx.query.q);
       notFound();
@@ -121,7 +123,8 @@ function addToResults(pkg) {
     '.github-link': {
       href: githubLink
     },
-    '.description': truncate(pkg.description, 100)
+    '.description': truncate(pkg.description, 100),
+    '.downloads': pkg.downloads.current + ' downloads this month'
   });
 
   // handle cases where there is no github link
