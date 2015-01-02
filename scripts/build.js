@@ -15,7 +15,8 @@ var assets = [
   'frontend/index.html',
   'frontend/svgdefs.svg',
   'frontend/bundle.js',
-  'frontend/favicons/*.png'
+  'frontend/favicons/*.png',
+  'frontend/robots.txt'
 ];
 // there's no css because they will be concatenated
 

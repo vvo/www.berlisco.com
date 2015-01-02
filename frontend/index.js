@@ -19,39 +19,37 @@ var index = client.initIndex(
 );
 
 var html = fs.readFileSync(__dirname + '/package.html', 'utf8');
-var loader = new Loader();
-var $results = document.querySelector('.results');
-var $search = document.querySelector('.search-bar input');
-var lastSearch;
 var latestSearchTime;
+var loader = new Loader();
 var pageLoad = true;
+var pagination = require('./pagination')(document.querySelector('.pagination'), scrollTop);
+var $results = document.querySelector('.results');
+var $searchInput = document.querySelector('.search-bar input');
 
 insertSVGIcons();
 
-$search.addEventListener('keyup', debounce(search, 155, {
+$searchInput.addEventListener('input', debounce(search, 155, {
   leading: false,
   trailing: true
 }));
 
-function search() {
-  var newSearch = this.value.trim();
+$searchInput.addEventListener('keyup', blurIfEscape);
 
-  // ignore modifier keys (ctrl, shift..)
-  if (newSearch === lastSearch) {
-    // need to check for modifiers keys explicitly
-    return;
-  }
+function search() {
+  var toSearch = this.value.trim();
 
   latestSearchTime = Date.now();
 
-  emptyElement($results);
-
-  lastSearch = newSearch;
-
-  if (newSearch === '') {
+  if (toSearch === '') {
     page('/');
   } else {
-    page('?q=' + encodeURIComponent(newSearch));
+    page('?q=' + encodeURIComponent(toSearch));
+  }
+}
+
+function blurIfEscape(e) {
+  if (e.keyCode === 27) {
+    $searchInput.blur();
   }
 }
 
@@ -70,43 +68,55 @@ function parse(ctx, next) {
 
 function show(ctx) {
   var currentSearchTime = Date.now();
+  var searchQuery = ctx.query.q;
+  var currentPage = ctx.query.p || 1;
 
-  if (!ctx.query.q) {
+  emptyElement($results);
+  pagination.hide();
+  loader.hide();
+
+  if (!searchQuery) {
     debug('nothing to search');
     return;
   }
 
   // fill default search value at pageLoad
-  if (pageLoad && $search.value === '' && ctx.query.q !== undefined) {
-    debug('set initial search value to `%s`', ctx.query.q);
-    $search.value = ctx.query.q;
+  if (pageLoad && $searchInput.value === '' && searchQuery !== undefined) {
+    debug('set initial search value to `%s`', searchQuery);
+    $searchInput.value = searchQuery;
   }
 
   pageLoad = false;
 
   loader.show();
 
-  index.search(ctx.query.q, function(success, content) {
+  index.search(searchQuery, searchDone, {
+    page: currentPage - 1
+  });
+
+  function searchDone(success, res) {
     // a more recent search was triggered, forget this response
     if (latestSearchTime > currentSearchTime) {
-      debug('dropped results for `%s` because a more recent search happened', ctx.query.q);
+      debug('dropped results for `%s` because a more recent search happened', searchQuery);
       return;
     }
 
     loader.hide();
 
-    if (content.hits.length === 0) {
-      debug('nothing found for `%s`', ctx.query.q);
+    if (res.hits.length === 0) {
+      debug('nothing found for `%s`', searchQuery);
       notFound();
       return;
     }
 
-    content.hits.forEach(addToResults);
-    loader.hide();
-  });
+    res.hits.forEach(addToResults);
+
+    pagination.update(res.page + 1, res.nbPages, searchQuery);
+  }
 }
 
 function addToResults(pkg) {
+  var downloads = pkg.downloads && pkg.downloads.current || 0;
   var githubLink;
 
   if (pkg.github) {
@@ -124,7 +134,7 @@ function addToResults(pkg) {
       href: githubLink
     },
     '.description': truncate(pkg.description, 100),
-    '.downloads': pkg.downloads.current + ' downloads this month'
+    '.downloads': downloads.toLocaleString()
   });
 
   // handle cases where there is no github link
@@ -146,10 +156,14 @@ function emptyElement(element) {
   }
 }
 
+function scrollTop() {
+  document.documentElement.scrollIntoView();
+}
+
 // bind `/` when not in search bar to focus search bar
 // gmail style search
 document.addEventListener('keyup', function bindShortcut(e) {
-  if (e.target === $search) {
+  if (e.target === $searchInput) {
     return;
   }
 
@@ -157,7 +171,7 @@ document.addEventListener('keyup', function bindShortcut(e) {
     return;
   }
 
-  $search.focus();
+  $searchInput.focus();
 });
 
 function insertSVGIcons() {

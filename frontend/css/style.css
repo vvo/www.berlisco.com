@@ -4,6 +4,10 @@ html {
   font-family: Tahoma, Verdana, Segoe, sans-serif;
 }
 
+body {
+  padding-bottom: 5em;
+}
+
 a {
   color: rgb(53,1,14);
 }
@@ -13,7 +17,7 @@ a {
 }
 
 .hide {
-  display: none;
+  display: none !important;
 }
 
 .site-header {
@@ -23,11 +27,16 @@ a {
   border-bottom: 1px solid rgb(230,218,197);
 }
 
-.site-header .icon-berlisco-logo {
+.site-header .logo {
   display: block;
   width: 5em;
   height: 6em;
   margin: 1em auto;
+}
+
+.site-header .icon-berlisco-logo {
+  width: 100%;
+  height: 100%;
 }
 
 .tagline {
@@ -131,7 +140,19 @@ a {
 .disabled {
   opacity: .3;
   cursor: default;
-  pointer-events: none;
+}
+
+.metas .icon {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.download-count {
+  font-size: 90%;
+}
+
+.download-count .icon {
+  vertical-align: bottom;
 }
 
 /* screen >= 568px */
@@ -145,3 +166,22 @@ a {
   }
 }
 
+.pagination {
+  font-size: 90%;
+  text-align: center;
+  margin-top: 4em;
+}
+
+.pagination a {
+  display: inline-block;
+  text-decoration: none;
+  padding: .2em .7em;
+  border: 1px solid rgb(230,218,197);
+  border-radius: 2px;
+}
+
+.pagination a:hover, .pagination .current-page {
+  background-color: rgb(168,35,83);
+  color: rgb(255,255,255);
+  border-color: rgb(53,1,14);
+}

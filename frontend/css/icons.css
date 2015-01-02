@@ -3,9 +3,63 @@
 	color: #000000;
 	fill: currentColor;
 }
+.icon-download-count {
+	width: 32px;
+	height: 32px;
+}
+.icon-command-line {
+	width: 28px;
+	height: 32px;
+}
+#icon-command-line .path1 {
+	fill: rgba(0, 0, 255, 1);
+}
+#icon-command-line .path2 {
+	fill: rgba(0, 0, 0, 1);
+}
+#icon-command-line .path3 {
+	fill: rgba(255, 255, 0, 1);
+}
+#icon-command-line .path4 {
+	fill: rgba(255, 255, 0, 1);
+}
+.icon-npm-logo-3d {
+	width: 28px;
+	height: 32px;
+}
+#icon-npm-logo-3d .path1 {
+	fill: rgb(230, 230, 230);
+}
+#icon-npm-logo-3d .path2 {
+	fill: rgb(242, 242, 242);
+}
+#icon-npm-logo-3d .path3 {
+	fill: rgb(230, 230, 230);
+}
+#icon-npm-logo-3d .path4 {
+	fill: rgb(204, 204, 204);
+}
+#icon-npm-logo-3d .path5 {
+	fill: rgb(203, 56, 55);
+}
+#icon-npm-logo-3d .path6 {
+	fill: rgb(203, 56, 55);
+}
+#icon-npm-logo-3d .path7 {
+	fill: rgb(203, 56, 55);
+}
+#icon-npm-logo-3d .path8 {
+	fill: rgb(204, 204, 204);
+}
+#icon-npm-logo-3d .path9 {
+	fill: rgb(204, 204, 204);
+}
+#icon-npm-logo-3d .path10 {
+	fill: rgb(204, 204, 204);
+}
 .icon-npm-logo {
-	width: 128px;
-	height: 50px;
+	width: 82px;
+	height: 32px;
 }
 #icon-npm-logo .path1 {
 	fill: rgb(255, 255, 255);
@@ -14,8 +68,8 @@
 	fill: rgb(205, 54, 50);
 }
 .icon-browserify-logo {
-	width: 43px;
-	height: 50px;
+	width: 28px;
+	height: 32px;
 }
 #icon-browserify-logo .path1 {
 	fill: rgb(61, 106, 146);
@@ -111,8 +165,8 @@
 	fill: rgb(230, 179, 90);
 }
 .icon-grunt-logo {
-	width: 43px;
-	height: 50px;
+	width: 28px;
+	height: 32px;
 }
 #icon-grunt-logo .path1 {
 	fill: rgb(70, 48, 20);
@@ -337,8 +391,8 @@
 	fill: rgb(70, 48, 20);
 }
 .icon-algolia-logo {
-	width: 159px;
-	height: 50px;
+	width: 102px;
+	height: 32px;
 }
 #icon-algolia-logo .path1 {
 	fill: rgb(59, 151, 208);
@@ -347,8 +401,8 @@
 	fill: rgb(85, 86, 86);
 }
 .icon-berlisco-logo {
-	width: 43px;
-	height: 50px;
+	width: 28px;
+	height: 32px;
 }
 #icon-berlisco-logo .path1 {
 	fill: rgb(134, 134, 191);
@@ -404,50 +458,16 @@
 
 }
 .icon-github-logo {
-	width: 43px;
-	height: 50px;
+	width: 28px;
+	height: 32px;
 }
 .icon-gulp-logo {
-	width: 43px;
-	height: 50px;
+	width: 28px;
+	height: 32px;
 }
 #icon-gulp-logo .path1 {
 	fill: currentcolor;
 }
 #icon-gulp-logo .path2 {
 	fill: currentcolor;
-}
-.icon-npm-logo-3d {
-	width: 43px;
-	height: 50px;
-}
-#icon-npm-logo-3d .path1 {
-	fill: rgb(230, 230, 230);
-}
-#icon-npm-logo-3d .path2 {
-	fill: rgb(242, 242, 242);
-}
-#icon-npm-logo-3d .path3 {
-	fill: rgb(230, 230, 230);
-}
-#icon-npm-logo-3d .path4 {
-	fill: rgb(204, 204, 204);
-}
-#icon-npm-logo-3d .path5 {
-	fill: rgb(203, 56, 55);
-}
-#icon-npm-logo-3d .path6 {
-	fill: rgb(203, 56, 55);
-}
-#icon-npm-logo-3d .path7 {
-	fill: rgb(203, 56, 55);
-}
-#icon-npm-logo-3d .path8 {
-	fill: rgb(204, 204, 204);
-}
-#icon-npm-logo-3d .path9 {
-	fill: rgb(204, 204, 204);
-}
-#icon-npm-logo-3d .path10 {
-	fill: rgb(204, 204, 204);
 }

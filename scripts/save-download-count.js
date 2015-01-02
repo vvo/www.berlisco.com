@@ -51,6 +51,9 @@ function update() {
 function end(packagesDone) {
   debug('%d packages got their download count updated', packagesDone);
 
+  // first npmjs package is `0`, https://www.npmjs.com/package/0
+  replicationStore.set('0');
+
   // stop the agent, everything is finished
   // Node.JS will exit after this line
   keepaliveAgent.destroy();
