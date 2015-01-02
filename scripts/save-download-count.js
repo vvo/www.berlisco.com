@@ -54,9 +54,11 @@ function end(packagesDone) {
   // first npmjs package is `0`, https://www.npmjs.com/package/0
   replicationStore.set('0');
 
-  // stop the agent, everything is finished
-  // Node.JS will exit after this line
-  keepaliveAgent.destroy();
+  setTimeout(function quit() {
+    // stop the agent, everything is finished
+    // Node.JS will exit after this line
+    keepaliveAgent.destroy();
+  }, 10 * 3600 * 1000)
 }
 
 function errorOccured(err) {

@@ -18,7 +18,7 @@ var assets = [
   'frontend/favicons/*.png',
   'frontend/robots.txt'
 ];
-// there's no css because they will be concatenated
+// there's no css because they will be concatenated by gulp-useref
 
 var assetsFilter = filter([
   '*.svg', 'bundle.css', 'bundle.js', 'favicons/*.png'
