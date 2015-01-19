@@ -34,6 +34,7 @@ gulp
   // let's work on the index page to
   // concatenate needed assets
   .pipe(indexFilter)
+  // this is how gulp-useref is used, no mistake
   .pipe(userefAssets)
   .pipe(userefAssets.restore())
   .pipe(useref())
