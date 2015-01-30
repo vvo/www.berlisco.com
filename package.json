@@ -22,7 +22,6 @@
     "browserify": "^8.1.1",
     "browserify-shim": "^3.8.2",
     "debug": "^2.1.1",
-    "dom-classes": "0.0.1",
     "hyperglue": "^2.0.1",
     "localenv": "^0.2.2",
     "localenvify": "^1.0.1",

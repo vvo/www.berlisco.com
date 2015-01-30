@@ -21,9 +21,9 @@ Pagination.prototype.update = function(currentPage, nbPages, searchQuery) {
   if (nbPages === 1) {
     this.$container.classList.add('hide');
     return;
-  } else {
-    this.$container.classList.remove('hide');
   }
+
+  this.$container.classList.remove('hide');
 
   if (currentPage > 1) {
     this.$previous.classList.remove('hide');
@@ -51,8 +51,8 @@ Pagination.prototype.update = function(currentPage, nbPages, searchQuery) {
   }));
 
   this.$currentPage.textContent = currentPage;
-}
+};
 
 Pagination.prototype.hide = function() {
   this.$container.classList.add('hide');
-}
+};

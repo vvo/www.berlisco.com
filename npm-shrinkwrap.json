@@ -1592,18 +1592,6 @@
         }
       }
     },
-    "dom-classes": {
-      "version": "0.0.1",
-      "from": "dom-classes@0.0.1",
-      "resolved": "https://registry.npmjs.org/dom-classes/-/dom-classes-0.0.1.tgz",
-      "dependencies": {
-        "indexof": {
-          "version": "0.0.1",
-          "from": "indexof@*",
-          "resolved": "https://registry.npmjs.org/indexof/-/indexof-0.0.1.tgz"
-        }
-      }
-    },
     "hyperglue": {
       "version": "2.0.1",
       "from": "hyperglue@>=2.0.1 <3.0.0",

@@ -1,14 +1,18 @@
 var AlgoliaSearch = require('algoliasearch');
 var debounce = require('lodash.debounce');
-var debug = require('debug')('berlisco:main');
-window.debug = require('debug');
+var debug = require('debug');
 var classes = require('dom-classes');
 var fs = require('fs');
 var hyperglue = require('hyperglue');
 var page = require('page');
 var qs = require('querystring');
 var truncate = require('truncate');
-var request = require('superagent');
+
+debug.enable('berlisco:*');
+
+require('./lib/insert-svg-defs')('/svgdefs.svg');
+var loader = require('./lib/loader')(document.querySelector('.loader'));
+var pagination = require('./lib/pagination')(document.querySelector('.pagination'), scrollTop);
 
 var client = new AlgoliaSearch(
   process.env.ALGOLIA_APP_ID,
@@ -20,13 +24,11 @@ var index = client.initIndex(
 
 var html = fs.readFileSync(__dirname + '/package.html', 'utf8');
 var latestSearchTime;
-var loader = new Loader();
 var pageLoad = true;
-var pagination = require('./pagination')(document.querySelector('.pagination'), scrollTop);
 var $results = document.querySelector('.results');
 var $searchInput = document.querySelector('.search-bar input');
 
-insertSVGIcons();
+debug = debug('berlisco:index');
 
 $searchInput.addEventListener('input', debounce(search, 155, {
   leading: false,
@@ -173,43 +175,3 @@ document.addEventListener('keyup', function bindShortcut(e) {
 
   $searchInput.focus();
 });
-
-function insertSVGIcons() {
-  request
-    .get('/svgdefs.svg')
-    .end(function downloaded(err, res) {
-      if (err || res.error) {
-        debug('cannot get svg icons');
-        return;
-      }
-
-      var DOMIcons = document.createElement('div');
-      DOMIcons.innerHTML = res.text;
-      DOMIcons
-        .querySelector('svg')
-        .setAttribute('display', 'none');
-      document.body.appendChild(DOMIcons);
-    });
-}
-
-// only show a loader after 200ms
-function Loader() {
-  this.$element = document.querySelector('.loader');
-}
-
-Loader.prototype.show = function() {
-  if (this.timer) {
-    clearTimeout(this.timer);
-  }
-
-  this.timer = setTimeout(this._show.bind(this), 200);
-};
-
-Loader.prototype._show = function() {
-  classes.remove(this.$element, 'hide');
-};
-
-Loader.prototype.hide = function() {
-  clearTimeout(this.timer);
-  classes.add(this.$element, 'hide');
-};
