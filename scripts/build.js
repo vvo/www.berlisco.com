@@ -11,7 +11,7 @@ var svgmin = require('gulp-svgmin');
 var useref = require('gulp-useref');
 var uglify = require('gulp-uglify');
 
-var assets = [
+var sources = [
   'frontend/index.html',
   'frontend/svgdefs.svg',
   'frontend/bundle.js',
@@ -21,20 +21,22 @@ var assets = [
 // there's no css because they will be concatenated by gulp-useref
 
 var assetsFilter = filter([
-  '*.svg', 'bundle.css', 'bundle.js', 'favicons/*.png'
+  '**/*', '!index.html', '!robots.txt'
 ]);
 
 var indexFilter = filter('index.html');
 var userefAssets = useref.assets();
 
 gulp
-  .src(['frontend/index.html'].concat(assets), {
+  .src(sources, {
     base: path.join(__dirname, '..', 'frontend')
   })
   // let's work on the index page to
   // concatenate needed assets
   .pipe(indexFilter)
   // this is how gulp-useref is used, no mistake
+  // it finds builds blocks and then concatenate them
+  // we could also use https://github.com/klei/gulp-inject
   .pipe(userefAssets)
   .pipe(userefAssets.restore())
   .pipe(useref())
