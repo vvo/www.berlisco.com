@@ -1,7 +1,6 @@
 var AlgoliaSearch = require('algoliasearch');
 var debounce = require('lodash.debounce');
 var debug = require('debug');
-var classes = require('dom-classes');
 var fs = require('fs');
 var hyperglue = require('hyperglue');
 var page = require('page');
@@ -141,8 +140,8 @@ function addToResults(pkg) {
 
   // handle cases where there is no github link
   if (!githubLink) {
-    classes.add(pkgElement.querySelector('.github-link'), 'hide');
-    classes.remove(pkgElement.querySelector('.no-gh'), 'hide');
+    pkgElement.querySelector('.github-link').classList.add('hide');
+    pkgElement.querySelector('.no-gh').classList.remove('hide');
   }
 
   $results.appendChild(pkgElement);
