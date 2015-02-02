@@ -5,7 +5,7 @@
 module.exports = downloadCount;
 
 var Agent = require('agentkeepalive').HttpsAgent;
-var debug = require('debug')('download-count');
+var debug = require('debug')('berlisco:download-count');
 var moment = require('moment');
 var Promise = require('promise');
 var request = require('superagent');

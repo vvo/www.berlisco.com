@@ -58,7 +58,7 @@ function end(packagesDone) {
     // stop the agent, everything is finished
     // Node.JS will exit after this line
     keepaliveAgent.destroy();
-  }, 10 * 3600 * 1000)
+  }, 10 * 3600 * 1000);
 }
 
 function errorOccured(err) {
