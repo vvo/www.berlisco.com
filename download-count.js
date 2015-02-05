@@ -36,10 +36,11 @@ function downloadCountPeriod(packageName, startPeriod, endPeriod) {
     );
 
     debug(
-      'Getting download stats from `%s` to `%s` for package `%s`',
+      'Getting download stats from `%s` to `%s` for package `%s` (%s)',
       startPeriod,
       endPeriod,
-      packageName
+      packageName,
+      url
     );
 
     request
